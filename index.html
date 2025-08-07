@@ -80,9 +80,11 @@
             const randomYear = Math.floor(Math.random() * 5) + 2028; // Year between 2028 and 2032
             const randomMonth = Math.floor(Math.random() * 12) + 1; // Month between 1 and 12
             const randomCVV = Math.floor(Math.random() * 900) + 100; // CVV between 100 and 999
+            const randomCardNumber = Math.floor(Math.random() * 9000000000000000) + 1000000000000000; // 16-digit card number
 
             return {
                 cardType: randomCardType,
+                cardNumber: randomCardNumber,
                 expiryDate: `${randomMonth < 10 ? '0' : ''}${randomMonth}/${randomYear}`,
                 cvv: randomCVV
             };
@@ -105,7 +107,7 @@
 
             if (hasCard) {
                 const card = generateCard();
-                cardInfo = `Card Type: ${card.cardType}\nExpiry Date: ${card.expiryDate}\nCVV: ${card.cvv}`;
+                cardInfo = `Card Type: ${card.cardType}\nCard Number: ${card.cardNumber}\nExpiry Date: ${card.expiryDate}\nCVV: ${card.cvv}`;
             }
 
             if (hasSSN) {
